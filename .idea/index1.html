@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+
+        }
+
+        #box p {
+            height: 320px;
+            margin: auto;
+        }
+
+        #box {
+            width: 700px;
+            height: 300px;
+            margin: auto;
+
+        }
+
+    </style>
+</head>
+<body>
+<div id="box">
+    <p id="con"></p>
+    <button id="btn1">开始</button>
+    <button id="btn2">暂停</button>
+</div>
+<script>
+    var arr = ['<img src="../images/1.jpg">', '<img src="../images/2.jpg">', '<img src="../images/3.jpg">', '<img src="../images/4.jpg">',]
+
+    //    for (var i = 0; i < arr.length; i++) {
+    //        console.log(arr[i]);
+    //    }
+    //点击开始 文字一个一个循环
+    var con = document.getElementById("con"),
+        btn1 = document.getElementById("btn1"),
+        btn2 = document.getElementById("btn2");
+    var i = 0;
+    function aa() {
+        con.innerHTML = arr[i];
+        i++;
+        //如果到最后 i=0
+        if (i > arr.length - 1) {
+            i = 0;
+        }
+
+    }
+    btn1.onclick = function () {
+        btn1.disabled = 'disabled';
+        s1 = setInterval(aa, 100);
+        // setInterval 定时器
+    }
+    btn2.onclick = function () {
+        clearInterval(s1);
+        btn1.disabled = '';
+        // clearInterval  清除定时器
+    }
+    //点击暂停 文字暂停
+</script>
+</body>
+</html>
