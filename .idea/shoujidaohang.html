@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>手机app排版</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        #box {
+            width: 300px;
+            height: 600px;
+            border: sandybrown;
+            margin: 40px auto;
+            overflow: hidden;
+        }
+
+        #con {
+
+
+        }
+
+    </style>
+</head>
+<body>
+<div id="box">
+    <ul id="left">
+        <li>凉菜</li>
+        <li>热菜</li>
+        <li>面点</li>
+    </ul>
+    <div id="con">
+        <p><img src="../images/1.jpg" height="300" width="318"/></p>
+        <p><img src="../images/2.jpg" height="300" width="318"/></p>
+        <p><img src="../images/3.jpg" height="300" width="318"/></p>
+    </div>
+</div>
+<script>
+    var lis = document.getElementById('box').getElementsByTagName('li'),
+        con = document.getElementById('con').getElementsByTagName('p');
+    for (var i = 0; i < lis.length; i++) {
+        lis[i].index = i;
+        console.log(lis[i].index);
+        lis[i].onclick = function () {
+            for (var j = 0; j < con.length; j++) {
+                con[j].style.display = 'none';
+                lis[j].style.background = '';
+            }
+            con[this.index].style.display = 'block';
+            lis[this.index].style.background = 'red';
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        #box {
+            width: 790px;
+            height: 340px;
+            margin: 40px auto;
+            border: 1px solid red;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #box ul li {
+            float: left;
+
+        }
+
+        #num {
+            position: absolute;
+            width: 180px;
+            height: 20px;
+            float: left;
+            position: absolute;
+            right: 250px;
+            bottom: 20px;
+        }
+
+        #num li {
+            width: 12px;
+            height: 12px;
+            border: 1px solid #ccc;
+            background: black;
+            opacity: 0.5;
+            float: left;
+            margin-left: 2px;
+            border-radius: 10px;
+            /*color: #fff;*/
+            /*text-align: center;*/
+            /*line-height: 33px;*/
+        }
+
+        #left {
+            position: absolute;
+            left: 10px;
+            top: 145px;
+            width: 50px;
+            height: 60px;
+            background: #ccc;
+            opacity: 0.5;
+            border-radius: 10px;
+            text-align: center;
+            line-height: 60px;
+            font-size: 36px;
+        }
+
+        #right {
+            position: absolute;
+            right: 10px;
+            top: 145px;
+            width: 50px;
+            height: 60px;
+            background: #ccc;
+            opacity: 0.5;
+            border-radius: 10px;
+            text-align: center;
+            line-height: 60px;
+            font-size: 36px;
+        }
+
+    </style>
+</head>
+<body>
+<div id="box">
+    <ul id="imgs">
+        <li><a href="https://sale.jd.com/act/hyVwDTbXgdE.html?cpdad=1DLSUE"><img src="../img/x1.jpg"></a></li>
+        <li><a href="https://sale.jd.com/act/bcu4WdKCi3.html?cpdad=1DLSUE"><img src="../img/x2.jpg"></a></li>
+        <li><a href="https://sale.jd.com/act/DhKrOjXnFcGL.html?cpdad=1DLSUE"><img src="../img/x3.jpg"></a></li>
+        <li>
+            <a href="https://sale.jd.com/act/3PQAmxqUdzsZW08.html?jd_pop=dd177e97-0463-4963-9a94-90c8828797d2&abt=1"><img
+                    src="../img/x4.jpg"></a></li>
+        <li><a href="https://o.jd.com/market/index.action?cpdad=1DLSUE"><img src="../img/x5.jpg"></a></li>
+        <li><a href="https://sale.jd.com/act/TzBLtN6s7iXAbRwC.html?cpdad=1DLSUE"><img src="../img/x6.jpg"></a></li>
+        <span id="left">  <  </span>
+        <span id="right">  >  </span>
+    </ul>
+    <ol id="num">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+
+    </ol>
+</div>
+<script>
+    var imgs = document.getElementById('imgs').getElementsByTagName('li'),
+        nums = document.getElementById('num').getElementsByTagName('li');
+    var left = document.getElementById("left");
+    var right = document.getElementById("right");
+    //    左右点击滚动
+    var index = 0;
+    right.onclick = function () {
+        for (var i = 0; i < imgs.length; i++) {
+            imgs[i].style.display = 'none';
+        }
+        index++;
+        if (index > imgs.length - 1) {
+            index = 0;
+        }
+        imgs[index].style.display = 'block';
+    }
+    left.onclick = function () {
+        for (var i = 0; i < imgs.length; i++) {
+            imgs[i].style.display = 'none';
+        }
+        index--;
+        if (index < 0) {
+            index = imgs.length - 1;
+        }
+        imgs[index].style.display = 'block';
+    }
+    //  自动滚动
+    var k = 0;
+    function auto() {
+        for (var i = 0; i < nums.length; i++) {
+            imgs[i].style.display = 'none';
+            nums[i].style.background = 'none';
+        }
+        imgs[k].style.display = 'block';
+        nums[k].style.background = 'red';
+        k++;
+        if (k >= nums.length ) {
+            k = 0;
+        }
+    }
+    sl=setInterval(auto, 1000);
+    //    下标点击滚动
+//    for (var i = 0; i < nums.length; i++) {
+//        nums[i].index = i
+//        nums[i].onmouseover = function () {
+//            for (var j = 0; j < imgs.length; j++) {
+//                imgs[j].style.display = 'none';
+//                nums[j].style.background = 'none';
+//            }
+//            nums[this.index].style.background = 'red';
+//            imgs[this.index].style.display = 'block';
+//        }
+//    }
+    for(var i=0;i<nums.length;i++){
+        nums[i].index=i;
+        nums[i].onmouseover=function(){
+            clearInterval(sl);
+            //鼠标划过数字的时候
+            //让所有的图片隐藏 让数字的背景清空
+            for(var j=0;j<imgs.length;j++){
+                imgs[j].style.display='none';
+                nums[j].style.background='none';
+            }
+            nums[this.index].style.background='red';
+            imgs[this.index].style.display='block';
+        }
+        nums[i].onmouseout=function(){
+            k=this.index;
+            sl=setInterval(auto,1000);
+        }
+    }
+</script>
+</body>
+</html>

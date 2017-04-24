@@ -1,0 +1,47 @@
+
+.main {
+    width: 940px;
+    height: 539px;
+    /*background: #e0e0e0;*/
+}
+.m_left {
+    width: 579px;
+    height: 539px;
+    /*background: #e4bae8;*/
+    float: left;
+}
+.m_print {
+    width: 279px;
+    height: 200px;
+    float: right;
+    /*background: tomato;*/
+}
+.m_right {
+    width: 279px;
+    height: 359px;
+   /*background: red;*/
+    float: right;
+
+}
+.m_left p{
+    width: 940px;
+    height: 24px;
+    /*background: darkgreen;*/
+    padding: 16px 0 0 14px;
+    border-bottom: 1px solid #ccc;
+}
+.m_top dl {
+    float: left;
+}
+.m_seek {
+    float: right;
+}
+.m_print {
+    float: left;
+}
+.m_sub {
+    width: 940px;
+    height: 56px;
+    background: lightgray;
+    float: inherit;
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<!--获取元素的几种办法-->
+<!--1、document.getElementById()-->
+<!--2、document.getEementsByclassName()-->
+<!--3、document.getEementsByTagName()-->
+<div id='box'>你好</div>
+<button onclick='cc()'>点击改变</button>
+<script>
+    var box = document.getElementById("box").innerHTML="谢谢";
+    function cc() {
+        alert('accc');
+    }
+    cc();
+</script>
+<!--<button onclick="alert('你好')">点击</button>-->
+<!--<div id="box">你好</div>-->
+<input type="text" value="fds">
+<input type="text" value="hi">
+<input type="text" value="hello">
+<input type="text" value="cba">
+<script>
+    var box = document.getElementById('box');
+    console.log(box.innerHTML='谢谢')
+  //  console.log(box.innerText='不客气')
+    var cc = document.getElementsByTagName('input')[3].value;
+    console.log(cc);
+
+// 获取文本的值 div p ul ol li dl dt dd a span 文本值
+//    1、用 innerHTML
+//    2、用 innerText
+//    赋值
+//    1、用 innerHTML=''
+//    2、用 innerText=''
+//获取表单的值 form input button
+</script>
+</body>
+</html>

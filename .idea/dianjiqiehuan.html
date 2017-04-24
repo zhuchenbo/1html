@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        #box {
+            width: 400px;
+            height: 200px;
+            background: blanchedalmond;
+            margin: 40px auto;
+            overflow: hidden;
+
+        }
+
+        #box ul {
+            height: 40px;
+          /*background: #7287f4;*/
+
+        }
+
+        #box ul li {
+            line-height: 40px;
+            float: left;
+            padding: 0 50px;
+            background: yellowgreen;
+            color: #fff;
+            border-right: 1px solid #f5f5f5;
+        }
+
+        #con {
+            height: 160px;
+
+        }
+
+        #con p {
+            padding: 20px;
+            width: 360px;
+            height: 120px;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <ul id="xinwen">
+        <li>新闻</li>
+        <li>娱乐</li>
+        <li>游戏</li>
+    </ul>
+    <div id="con">
+        <p>飞回家啊客户副f合法身份快接啊上方空间啊还是分开哈空间和会计师科级啊上看</p>
+        <p>疯狂揽卡拉哈里卡那发送开发哈市封杀回房间啊上方空间哈萨克积分哈萨克交换空间里</p>
+        <p>娇回复可见撒谎开房间沙河口积分哈萨克积分哈空间啊上方空间啊刷卡缴费沙坑解放后</p>
+    </div>
+</div>
+<script>
+    var lis = document.getElementById('xinwen').getElementsByTagName('li'),
+        con = document.getElementById('con').getElementsByTagName('p');
+    for (var i = 0; i < lis.length; i++) {
+        lis[i].index = i;
+        console.log(lis[i].index);
+        lis[i].onclick = function () {
+            for (var j = 0; j < con.length; j++) {
+                con[j].style.display = 'none';
+                lis[j].style.background = '';
+            }
+            con[this.index].style.display = 'block';
+            lis[this.index].style.background = 'red';
+        }
+    }
+</script>
+</body>
+</html>

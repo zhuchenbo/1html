@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="button" value="-" id="minus">
+<input type="text" value="1" id="unit">
+<input type="button" value="+" id="puls">
+单价：<span id="price">120</span>元
+总价：<span id="total">120</span>元
+<script>
+    var minus = document.getElementById("minus"),
+        unit = document.getElementById("unit"),
+        puls = document.getElementById("puls"),
+        price = document.getElementById("price"),
+        total = document.getElementById("total");
+    puls.onclick=function () {
+        var num = ++number.value;
+        total.innerHTML = (num * price).toFixed(2);
+    }
+    minus.onclick=function () {
+        var num1 = number.value;
+        console.log(num1);
+        if(num1<1) {
+            num1 = 1;
+        }
+    }
+
+</script>
+</body>
+</html>

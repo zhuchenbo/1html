@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+
+        }
+
+        #box {
+            width: 700px;
+            height: 320px;
+            background: sandybrown;
+            margin: 40px auto;
+            overflow: hidden;
+        }
+
+        #con {
+            width: 7000px;
+            height: 320px;
+        }
+
+        #con li {
+            width: 700px;
+            height: 320px;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+
+<div id="bt">
+    <p id="con1"></p>
+    <button id="but1">开始</button>
+    <button id="but2">暂停</button>
+</div>
+<div id="box">
+    <ul id="con">
+
+        <!--<li style="background: aqua"><img src="../imges/1.jpg"></li>-->
+        <!--<li style="background: chartreuse"><img src="../images/2.jpg"></li>-->
+        <!--<li style="background: blanchedalmond"></li>-->
+        <li><img src="../images/1.jpg"></li>
+        <li><img src="../images/2.jpg"></li>
+        <li><img src="../images/3.jpg"></li>
+        <li><img src="../images/4.jpg"></li>
+        <li><img src="../images/5.jpg"></li>
+        <li><img src="../images/6.jpg"></li>
+        <li><img src="../images/7.jpg"></li>
+        <li><img src="../images/8.jpg"></li>
+        <li><img src="../images/9.jpg"></li>
+        <li><img src="../images/10.jpg"></li>
+    </ul>
+</div>
+<script>
+    var con = document.getElementById('con');
+    //        bt = document.getElementById('bt'),
+
+    var con1 = document.getElementById('con1'),
+        but1 = document.getElementById('but1'),
+        but2 = document.getElementById('but2');
+
+
+    function auto() {
+        var cleft = parseInt(con.style.marginLeft);
+        if (!cleft) {
+            cleft = 0;
+        }
+        if (cleft > -6300) {
+            con.style.marginLeft = cleft - 1 + 'px'
+        } else {
+            con.style.marginLeft = 0;
+        }
+        //  parseInt 类型转换
+        // 获取ul 的 marginLeft
+//        console.log(con.style.marginLeft);
+    }
+    but1.onclick = function () {
+        but1.disabled = 'disabled'
+        sl = setInterval(aa, 100);
+    }
+    but2.onclick = function () {
+        clearInterval(sl);
+        but1.disabled = '';
+    }
+    setInterval(auto, 10);
+
+
+    //    auto();
+</script>
+</body>
+</html>
