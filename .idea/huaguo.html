@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        #box {
+            width: 700px;
+            height: auto;
+            margin: 40px auto;
+
+        }
+
+        #box ul {
+            width: 700px;
+            height: auto;
+
+        }
+
+        #box ul li {
+            width: 700px;
+            height: 320px;
+            position: relative;
+            border: 2px solid #fff;
+        }
+
+        #box ul li p {
+            width: 680px;
+            height: 50px;
+            line-height: 50px;
+            color: #fff;
+            background: #000;
+            opacity: 0.4;
+            left: 0;
+            position: absolute;
+            bottom: 20px;
+            text-align: center;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <ul id="imgs">
+        <li><p>我回家啊环境税费</p><img src="../images/1.jpg" alt=""></li>
+        <li><p>我回家啊环境税费</p><img src="../images/2.jpg" alt=""></li>
+        <li><p>我回家啊环境税费</p><img src="../images/3.jpg" alt=""></li>
+        <li><p>我回家啊环境税费</p><img src="../images/4.jpg" alt=""></li>
+        <li><p>我回家啊环境税费</p><img src="../images/5.jpg" alt=""></li>
+        <li><p>我回家啊环境税费</p><img src="../images/6.jpg" alt=""></li>
+        <li><p>我回家啊环境税费</p><img src="../images/7.jpg" alt=""></li>
+        <li><p>我回家啊环境税费</p><img src="../images/8.jpg" alt=""></li>
+        <li><p>我回家啊环境税费</p><img src="../images/9.jpg" alt=""></li>
+        <li><p>我回家啊环境税费</p><img src="../images/10.jpg" alt=""></li>
+    </ul>
+</div>
+<script>
+
+    var lis = document.getElementsByTagName('ul')[0].getElementsByTagName('li');
+    for (var i=0;i<lis.length;i++) {
+        lis[i].onmouseover = function () {
+            this.style.border = '2px solid red';
+            this.getElementsByTagName('p')[0].style.display = 'block';
+            this.getElementsByTagName('p')[0].style.color = '#fff';
+        }
+        lis[i].onmouseout=function(){
+            this.style.border='2px solid #ccc';
+            this.getElementsByTagName('p')[0].style.display='none';
+            this.getElementsByTagName('p')[0].style.color='#fff';
+        }
+    }
+
+</script>
+</body>
+</html>
